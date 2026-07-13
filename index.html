@@ -919,6 +919,163 @@
       }
     }
 
+    /* ============ Showcase (flagship projects) ============ */
+    .showcase-list {
+      display: grid;
+      gap: clamp(48px, 7vw, 88px);
+      margin-bottom: clamp(56px, 8vw, 96px);
+      counter-reset: showcase;
+    }
+
+    .showcase-item {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--s-6);
+      counter-increment: showcase;
+    }
+
+    .showcase-num::before {
+      content: counter(showcase, decimal-leading-zero) ".";
+    }
+
+    .showcase-media {
+      border: 1px solid var(--line);
+      background: var(--bg);
+    }
+
+    .browser-chrome {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 14px;
+      background: var(--card);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .browser-chrome span {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--line);
+    }
+
+    .showcase-frame {
+      position: relative;
+      aspect-ratio: 16/10;
+      overflow: hidden;
+      background: var(--bg-2);
+    }
+
+    .showcase-frame .card-preview {
+      opacity: 1;
+    }
+
+    .showcase-frame .play-btn {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    .showcase-copy {
+      display: flex;
+      flex-direction: column;
+      gap: var(--s-4);
+    }
+
+    .showcase-eyebrow-row {
+      display: flex;
+      align-items: baseline;
+      gap: var(--s-3);
+      font-family: var(--mono);
+      font-size: var(--step--1);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--highlight);
+    }
+
+    .showcase-copy h3 {
+      font-size: var(--step-3);
+      letter-spacing: -0.02em;
+    }
+
+    .showcase-desc {
+      color: var(--muted);
+      font-size: var(--step-1);
+      line-height: 1.6;
+      max-width: 52ch;
+    }
+
+    .sf-label {
+      font-size: var(--step--1);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: var(--s-3);
+    }
+
+    .showcase-features ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: var(--s-2) var(--s-5);
+    }
+
+    .showcase-features li {
+      position: relative;
+      padding-left: var(--s-4);
+      font-size: var(--step-0);
+    }
+
+    .showcase-features li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.65em;
+      width: 5px;
+      height: 5px;
+      background: var(--highlight);
+    }
+
+    .showcase-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--s-2);
+    }
+
+    .showcase-tags .tag {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+      border: 1px solid var(--line);
+      padding: 4px 9px;
+    }
+
+    .showcase-go {
+      align-self: flex-start;
+      margin-top: var(--s-2);
+    }
+
+    @media (min-width: 900px) {
+      .showcase-item {
+        grid-template-columns: 1.1fr 1fr;
+        align-items: center;
+      }
+
+      .showcase-item:nth-child(even) .showcase-media {
+        order: 2;
+      }
+
+      .showcase-item:nth-child(even) .showcase-copy {
+        order: 1;
+      }
+
+      .showcase-features ul {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
     /* ============ Video modal ============ */
     .video-modal {
       position: fixed;
@@ -1448,83 +1605,242 @@
             apps, and bots.</p>
         </div>
 
+        <!-- Flagship case studies -->
+        <div class="showcase-list">
+
+          <article class="showcase-item reveal" data-yt-id="mvFkpqszs8o" data-yt-title="codesync.club">
+            <div class="showcase-media">
+              <div class="browser-chrome" aria-hidden="true"><span></span><span></span><span></span></div>
+              <div class="showcase-frame">
+                <span class="card-preview" aria-hidden="true">
+                  <img src="https://img.youtube.com/vi/mvFkpqszs8o/hqdefault.jpg" alt="" loading="lazy"
+                    decoding="async" width="480" height="360">
+                </span>
+                <button class="play-btn" type="button" aria-label="Play video: codesync.club">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"
+                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M8 5.5v13l11-6.5z" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="showcase-copy">
+              <p class="showcase-eyebrow-row"><span class="showcase-num"></span> AI coding education platform</p>
+              <h3>codesync.club</h3>
+              <p class="showcase-desc">Accessible multimodal AI coding tutors for learners who need more than
+                text — voice and vision built in from the start.</p>
+              <div class="showcase-features">
+                <p class="sf-label mono">Core features</p>
+                <ul>
+                  <li>Multimodal voice + vision tutoring</li>
+                  <li>700 active users</li>
+                  <li>$8K ARR</li>
+                </ul>
+              </div>
+              <div class="showcase-tags" aria-label="Category">
+                <span class="tag">Web</span><span class="tag">AI</span><span class="tag">Voice</span>
+              </div>
+              <a class="go showcase-go" href="https://codesync.club" target="_blank" rel="noopener"><span
+                  class="mono">Visit project</span> <span class="arrow" aria-hidden="true">→</span></a>
+            </div>
+          </article>
+
+          <article class="showcase-item reveal" data-yt-id="nSXWExDl3NE" data-yt-title="instalearn.college">
+            <div class="showcase-media">
+              <div class="browser-chrome" aria-hidden="true"><span></span><span></span><span></span></div>
+              <div class="showcase-frame">
+                <span class="card-preview" aria-hidden="true">
+                  <img src="https://img.youtube.com/vi/nSXWExDl3NE/hqdefault.jpg" alt="" loading="lazy"
+                    decoding="async" width="480" height="360">
+                </span>
+                <button class="play-btn" type="button" aria-label="Play video: instalearn.college">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"
+                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M8 5.5v13l11-6.5z" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="showcase-copy">
+              <p class="showcase-eyebrow-row"><span class="showcase-num"></span> AI screen-recording + learning
+                community</p>
+              <h3>instalearn.college</h3>
+              <p class="showcase-desc">An AI screen-recording tool paired with a community built around digital
+                learning.</p>
+              <div class="showcase-features">
+                <p class="sf-label mono">Core features</p>
+                <ul>
+                  <li>AI-assisted screen recording</li>
+                  <li>Community for digital learners</li>
+                  <li>Vision-based content analysis</li>
+                </ul>
+              </div>
+              <div class="showcase-tags" aria-label="Category">
+                <span class="tag">Web</span><span class="tag">AI</span><span class="tag">Vision</span>
+              </div>
+              <a class="go showcase-go" href="https://instalearn.college" target="_blank" rel="noopener"><span
+                  class="mono">Visit project</span> <span class="arrow" aria-hidden="true">→</span></a>
+            </div>
+          </article>
+
+          <article class="showcase-item reveal" data-yt-id="PLKGr9W-g9w" data-yt-title="askaria.today">
+            <div class="showcase-media">
+              <div class="browser-chrome" aria-hidden="true"><span></span><span></span><span></span></div>
+              <div class="showcase-frame">
+                <span class="card-preview" aria-hidden="true">
+                  <img src="https://img.youtube.com/vi/PLKGr9W-g9w/hqdefault.jpg" alt="" loading="lazy"
+                    decoding="async" width="480" height="360">
+                </span>
+                <button class="play-btn" type="button" aria-label="Play video: askaria.today">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"
+                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M8 5.5v13l11-6.5z" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="showcase-copy">
+              <p class="showcase-eyebrow-row"><span class="showcase-num"></span> AI decision-making companion</p>
+              <h3>askaria.today</h3>
+              <p class="showcase-desc">Perplexity meets Pinterest — an AI companion that helps you research and
+                visualize decisions before you make them.</p>
+              <div class="showcase-features">
+                <p class="sf-label mono">Core features</p>
+                <ul>
+                  <li>AI-powered research</li>
+                  <li>Visual, Pinterest-style discovery</li>
+                  <li>Decision-support workflow</li>
+                </ul>
+              </div>
+              <div class="showcase-tags" aria-label="Category">
+                <span class="tag">Web</span><span class="tag">AI</span>
+              </div>
+              <a class="go showcase-go" href="https://askaria.today" target="_blank" rel="noopener"><span
+                  class="mono">Visit project</span> <span class="arrow" aria-hidden="true">→</span></a>
+            </div>
+          </article>
+
+          <article class="showcase-item reveal" data-yt-id="JdiXPhZFUe0" data-yt-title="Virtual Avatar SDE">
+            <div class="showcase-media">
+              <div class="browser-chrome" aria-hidden="true"><span></span><span></span><span></span></div>
+              <div class="showcase-frame">
+                <span class="card-preview" aria-hidden="true">
+                  <img src="https://img.youtube.com/vi/JdiXPhZFUe0/hqdefault.jpg" alt="" loading="lazy"
+                    decoding="async" width="480" height="360">
+                </span>
+                <button class="play-btn" type="button" aria-label="Play video: Virtual Avatar SDE">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"
+                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M8 5.5v13l11-6.5z" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="showcase-copy">
+              <p class="showcase-eyebrow-row"><span class="showcase-num"></span> Voice-driven AI coding assistant
+              </p>
+              <h3>Virtual Avatar SDE</h3>
+              <p class="showcase-desc">Talk to Claude Code through a virtual avatar — a conversational, voice-first
+                interface for AI-assisted development.</p>
+              <div class="showcase-features">
+                <p class="sf-label mono">Core features</p>
+                <ul>
+                  <li>Voice interface to Claude Code</li>
+                  <li>Real-time virtual avatar</li>
+                  <li>Conversational coding workflow</li>
+                </ul>
+              </div>
+              <div class="showcase-tags" aria-label="Category">
+                <span class="tag">Web</span><span class="tag">AI</span><span class="tag">Voice</span><span
+                  class="tag">Video</span>
+              </div>
+              <a class="go showcase-go" href="https://youtu.be/JdiXPhZFUe0" target="_blank" rel="noopener"><span
+                  class="mono">Visit project</span> <span class="arrow" aria-hidden="true">→</span></a>
+            </div>
+          </article>
+
+          <article class="showcase-item reveal" data-yt-id="yzgcv0dDofc" data-yt-title="Telegram Stock Bot">
+            <div class="showcase-media">
+              <div class="browser-chrome" aria-hidden="true"><span></span><span></span><span></span></div>
+              <div class="showcase-frame">
+                <span class="card-preview" aria-hidden="true">
+                  <img src="https://img.youtube.com/vi/yzgcv0dDofc/hqdefault.jpg" alt="" loading="lazy"
+                    decoding="async" width="480" height="360">
+                </span>
+                <button class="play-btn" type="button" aria-label="Play video: Telegram Stock Bot">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"
+                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M8 5.5v13l11-6.5z" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="showcase-copy">
+              <p class="showcase-eyebrow-row"><span class="showcase-num"></span> AI stock recommendation bot</p>
+              <h3>Telegram Stock Bot</h3>
+              <p class="showcase-desc">A Gen-AI and machine-learning powered bot that delivers stock
+                recommendations natively inside Telegram.</p>
+              <div class="showcase-features">
+                <p class="sf-label mono">Core features</p>
+                <ul>
+                  <li>GenAI + ML recommendation engine</li>
+                  <li>Native Telegram delivery</li>
+                  <li>Automated market analysis</li>
+                </ul>
+              </div>
+              <div class="showcase-tags" aria-label="Category">
+                <span class="tag">Bot</span><span class="tag">GenAI</span><span class="tag">ML</span>
+              </div>
+              <a class="go showcase-go" href="https://t.me/+c_tK5PnT-soyMDJl" target="_blank" rel="noopener"><span
+                  class="mono">Visit project</span> <span class="arrow" aria-hidden="true">→</span></a>
+            </div>
+          </article>
+
+          <article class="showcase-item reveal" data-yt-id="zTHrpHiCewk" data-yt-title="Audionova">
+            <div class="showcase-media">
+              <div class="browser-chrome" aria-hidden="true"><span></span><span></span><span></span></div>
+              <div class="showcase-frame">
+                <span class="card-preview" aria-hidden="true">
+                  <img src="https://img.youtube.com/vi/zTHrpHiCewk/hqdefault.jpg" alt="" loading="lazy"
+                    decoding="async" width="480" height="360">
+                </span>
+                <button class="play-btn" type="button" aria-label="Play video: Audionova">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"
+                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M8 5.5v13l11-6.5z" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="showcase-copy">
+              <p class="showcase-eyebrow-row"><span class="showcase-num"></span> AI music &amp; video production
+              </p>
+              <h3>Audionova</h3>
+              <p class="showcase-desc">The marketing site for an AI music and video production company —
+                showcasing AI-generated audio and visuals.</p>
+              <div class="showcase-features">
+                <p class="sf-label mono">Core features</p>
+                <ul>
+                  <li>AI music &amp; video production</li>
+                  <li>Client-facing marketing site</li>
+                  <li>Portfolio of AI-generated media</li>
+                </ul>
+              </div>
+              <div class="showcase-tags" aria-label="Category">
+                <span class="tag">Web</span><span class="tag">AI</span><span class="tag">Music</span><span
+                  class="tag">Design</span>
+              </div>
+              <a class="go showcase-go" href="https://audionova-672806830104.us-central1.run.app/" target="_blank"
+                rel="noopener"><span class="mono">Visit project</span> <span class="arrow"
+                  aria-hidden="true">→</span></a>
+            </div>
+          </article>
+
+        </div>
+
+        <p class="eyebrow" style="margin-top: var(--s-2);">More work</p>
+
         <div class="work-grid">
-
-          <article class="card card-yt reveal" data-yt-id="mvFkpqszs8o" data-yt-title="codesync.club">
-            <div class="card-top">
-              <h3>codesync.club</h3><span class="card-kind">Web · AI · Voice</span>
-            </div>
-            <p>Accessible multimodal AI coding tutors. 700 users, $8K ARR.</p>
-            <a class="go" href="https://codesync.club" target="_blank" rel="noopener"><span class="mono">Visit</span>
-              <span class="arrow" aria-hidden="true">→</span></a>
-            <span class="card-preview" aria-hidden="true">
-              <img src="https://img.youtube.com/vi/mvFkpqszs8o/hqdefault.jpg" alt="" loading="lazy" decoding="async"
-                width="480" height="360">
-            </span>
-            <button class="play-btn" type="button" aria-label="Play video: codesync.club">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
-                stroke-linejoin="round" aria-hidden="true">
-                <path d="M8 5.5v13l11-6.5z" />
-              </svg>
-            </button>
-          </article>
-
-          <article class="card card-yt reveal" data-yt-id="nSXWExDl3NE" data-yt-title="instalearn.college">
-            <div class="card-top">
-              <h3>instalearn.college</h3><span class="card-kind">Web · AI · Vision</span>
-            </div>
-            <p>An AI screen-recording tool plus a community for digital learning.</p>
-            <a class="go" href="https://instalearn.college" target="_blank" rel="noopener"><span
-                class="mono">Visit</span> <span class="arrow" aria-hidden="true">→</span></a>
-            <span class="card-preview" aria-hidden="true">
-              <img src="https://img.youtube.com/vi/nSXWExDl3NE/hqdefault.jpg" alt="" loading="lazy" decoding="async"
-                width="480" height="360">
-            </span>
-            <button class="play-btn" type="button" aria-label="Play video: instalearn.college">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
-                stroke-linejoin="round" aria-hidden="true">
-                <path d="M8 5.5v13l11-6.5z" />
-              </svg>
-            </button>
-          </article>
-
-          <article class="card card-yt reveal" data-yt-id="PLKGr9W-g9w" data-yt-title="askaria.today">
-            <div class="card-top">
-              <h3>askaria.today</h3><span class="card-kind">Web · AI</span>
-            </div>
-            <p>Perplexity meets Pinterest — an AI companion for making decisions.</p>
-            <a class="go" href="https://askaria.today" target="_blank" rel="noopener"><span class="mono">Visit</span>
-              <span class="arrow" aria-hidden="true">→</span></a>
-            <span class="card-preview" aria-hidden="true">
-              <img src="https://img.youtube.com/vi/PLKGr9W-g9w/hqdefault.jpg" alt="" loading="lazy" decoding="async"
-                width="480" height="360">
-            </span>
-            <button class="play-btn" type="button" aria-label="Play video: askaria.today">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
-                stroke-linejoin="round" aria-hidden="true">
-                <path d="M8 5.5v13l11-6.5z" />
-              </svg>
-            </button>
-          </article>
-
-          <article class="card card-yt reveal" data-yt-id="JdiXPhZFUe0" data-yt-title="Virtual Avatar SDE">
-            <div class="card-top">
-              <h3>Virtual Avatar SDE</h3><span class="card-kind">Web · AI · Voice · Video</span>
-            </div>
-            <p>Talk to Claude Code via a virtual avatar.</p>
-            <a class="go" href="https://youtu.be/JdiXPhZFUe0" target="_blank" rel="noopener"><span
-                class="mono">Visit</span> <span class="arrow" aria-hidden="true">→</span></a>
-            <span class="card-preview" aria-hidden="true">
-              <img src="https://img.youtube.com/vi/JdiXPhZFUe0/hqdefault.jpg" alt="" loading="lazy" decoding="async"
-                width="480" height="360">
-            </span>
-            <button class="play-btn" type="button" aria-label="Play video: Virtual Avatar SDE">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
-                stroke-linejoin="round" aria-hidden="true">
-                <path d="M8 5.5v13l11-6.5z" />
-              </svg>
-            </button>
-          </article>
 
           <article class="card card-yt reveal" data-yt-id="zS8VCTw7gZM" data-yt-title="Startup Success Index">
             <div class="card-top">
@@ -1538,25 +1854,6 @@
                 width="480" height="360">
             </span>
             <button class="play-btn" type="button" aria-label="Play video: Startup Success Index">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
-                stroke-linejoin="round" aria-hidden="true">
-                <path d="M8 5.5v13l11-6.5z" />
-              </svg>
-            </button>
-          </article>
-
-          <article class="card card-yt reveal" data-yt-id="yzgcv0dDofc" data-yt-title="Telegram Stock Bot">
-            <div class="card-top">
-              <h3>Telegram Stock Bot</h3><span class="card-kind">Bot · GenAI + ML</span>
-            </div>
-            <p>A Gen-AI and machine-learning powered stock recommendation bot on Telegram.</p>
-            <a class="go" href="https://t.me/+c_tK5PnT-soyMDJl" target="_blank" rel="noopener"><span
-                class="mono">Visit</span> <span class="arrow" aria-hidden="true">→</span></a>
-            <span class="card-preview" aria-hidden="true">
-              <img src="https://img.youtube.com/vi/yzgcv0dDofc/hqdefault.jpg" alt="" loading="lazy" decoding="async"
-                width="480" height="360">
-            </span>
-            <button class="play-btn" type="button" aria-label="Play video: Telegram Stock Bot">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
                 stroke-linejoin="round" aria-hidden="true">
                 <path d="M8 5.5v13l11-6.5z" />
@@ -1614,25 +1911,6 @@
                 width="480" height="360">
             </span>
             <button class="play-btn" type="button" aria-label="Play video: Interactive Books">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
-                stroke-linejoin="round" aria-hidden="true">
-                <path d="M8 5.5v13l11-6.5z" />
-              </svg>
-            </button>
-          </article>
-
-          <article class="card card-yt reveal" data-yt-id="zTHrpHiCewk" data-yt-title="Audionova">
-            <div class="card-top">
-              <h3>Audionova</h3><span class="card-kind">Web · AI · Music · Design</span>
-            </div>
-            <p>Website for an AI music &amp; video production company.</p>
-            <a class="go" href="https://audionova-672806830104.us-central1.run.app/" target="_blank"
-              rel="noopener"><span class="mono">Visit</span> <span class="arrow" aria-hidden="true">→</span></a>
-            <span class="card-preview" aria-hidden="true">
-              <img src="https://img.youtube.com/vi/zTHrpHiCewk/hqdefault.jpg" alt="" loading="lazy" decoding="async"
-                width="480" height="360">
-            </span>
-            <button class="play-btn" type="button" aria-label="Play video: Audionova">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
                 stroke-linejoin="round" aria-hidden="true">
                 <path d="M8 5.5v13l11-6.5z" />
@@ -1920,9 +2198,9 @@
 
       document.querySelectorAll('.play-btn').forEach(function (btn) {
         btn.addEventListener('click', function () {
-          var card = btn.closest('.card');
-          var id = card.getAttribute('data-yt-id');
-          var title = card.getAttribute('data-yt-title') || '';
+          var host = btn.closest('[data-yt-id]');
+          var id = host && host.getAttribute('data-yt-id');
+          var title = (host && host.getAttribute('data-yt-title')) || '';
           if (id) openVideoModal(id, title);
         });
       });
