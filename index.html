@@ -502,10 +502,12 @@
       opacity: .35;
     }
 
-    .portrait-frame img {
+    .portrait-frame img,
+    .portrait-frame video {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      display: block;
     }
 
     .portrait-tag {
@@ -1247,9 +1249,9 @@
 
         <div>
           <figure class="portrait-frame">
-            <img src="portrait.jpg" width="900" height="900" alt="Illustrated portrait of Partha Chakraborty"
-              fetchpriority="high" decoding="async">
-
+            <video class="portrait-video" id="portraitVideo" src="partha_video.mp4" poster="portrait.jpg"
+              width="900" height="900" muted loop playsinline preload="auto" fetchpriority="high"
+              aria-label="Portrait video of Partha Chakraborty"></video>
           </figure>
         </div>
       </div>
@@ -1857,6 +1859,12 @@
 
       /* Year */
       document.getElementById('year').textContent = new Date().getFullYear();
+
+      /* Hero portrait video — only autoplay if the user hasn't asked for reduced motion */
+      var portraitVideo = document.getElementById('portraitVideo');
+      if (portraitVideo && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        portraitVideo.play().catch(function () { });
+      }
 
       /* Reveal on scroll */
       var reveals = document.querySelectorAll('.reveal');
