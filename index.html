@@ -1,0 +1,1925 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Partha Chakraborty — AI Builder, Entrepreneur & Mentor</title>
+  <meta name="description"
+    content="Partha Chakraborty builds products with AI, mentors founders, and grows ideas from zero to one. 15+ apps shipped, 60+ teens mentored. Based in Kolkata, India.">
+  <link rel="canonical" href="https://parthachakraborty.com/">
+
+  <!-- Social -->
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="Partha Chakraborty — AI Builder, Entrepreneur & Mentor">
+  <meta property="og:description"
+    content="I build products with AI(), mentor founders, and grow ideas from zero to one. 15+ apps shipped, 60+ teens mentored.">
+  <meta property="og:image" content="portrait.jpg">
+  <meta property="og:image:width" content="900">
+  <meta property="og:image:height" content="900">
+  <meta property="og:url" content="https://parthachakraborty.com/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Partha Chakraborty — AI Builder, Entrepreneur & Mentor">
+  <meta name="twitter:description"
+    content="I build products with AI(), mentor founders, and grow ideas from zero to one.">
+  <meta name="twitter:image" content="portrait.jpg">
+
+  <meta name="theme-color" content="#E0F0F2" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0B2529" media="(prefers-color-scheme: dark)">
+  <link rel="icon"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23242627'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='22' font-weight='700' text-anchor='middle' fill='%23E0F0F2'%3EP%3C/text%3E%3C/svg%3E">
+
+  <!-- Fonts: Rethink Sans (brand display/body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Rethink+Sans:ital,wght@0,400;0,500;0,700;0,800;1,400&display=swap">
+
+  <!-- No-flash theme: set attribute before paint -->
+  <script>
+    (function () {
+      try {
+        var stored = localStorage.getItem('theme');
+        var sysDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.setAttribute('data-theme', stored || (sysDark ? 'dark' : 'light'));
+      } catch (e) { document.documentElement.setAttribute('data-theme', 'light'); }
+    })();
+  </script>
+
+  <style>
+    /* ============ Tokens ============ */
+    :root {
+      /* Brand — Clint Balcom editorial system (OKLCH) */
+      --bg: oklch(0.945 0.014 202);
+      /* pale cyan-mint canvas  #E0F0F2 */
+      --bg-2: oklch(0.965 0.010 202);
+      /* lifted surface / inputs */
+      --fg: oklch(0.265 0.004 220);
+      /* near-black ink #242627 */
+      --muted: oklch(0.545 0.030 226);
+      /* steel-blue, contrast-safe secondary text */
+      --highlight: oklch(0.350 0.045 207);
+      /* deep teal #0C3E45 */
+      --accent: oklch(0.350 0.045 207);
+      /* CTA fill = deep teal */
+      --accent-fg: oklch(0.975 0.010 202);
+      /* text on accent */
+      --accent-hover: oklch(0.300 0.048 207);
+      --line: color-mix(in oklab, var(--fg) 22%, transparent);
+      --line-soft: color-mix(in oklab, var(--fg) 12%, transparent);
+      --card: color-mix(in oklab, var(--fg) 4%, var(--bg));
+      --focus: oklch(0.55 0.16 12);
+      /* magenta-leaning focus ring, ≥3:1 */
+
+      /* Decorative RGB-split (never flat fills) */
+      --split-r: rgba(255, 34, 192, .90);
+      --split-b: rgba(24, 234, 255, .90);
+
+      /* Type scale (ratio ~1.25, fluid) */
+      --step--1: clamp(0.83rem, 0.80rem + 0.15vw, 0.9rem);
+      --step-0: clamp(1rem, 0.94rem + 0.30vw, 1.125rem);
+      --step-1: clamp(1.2rem, 1.10rem + 0.5vw, 1.4rem);
+      --step-2: clamp(1.45rem, 1.25rem + 1.0vw, 2rem);
+      --step-3: clamp(1.9rem, 1.55rem + 1.8vw, 3rem);
+      --step-4: clamp(2.4rem, 1.7rem + 3.6vw, 4.75rem);
+
+      /* Spacing (8-pt) */
+      --s-2: 8px;
+      --s-3: 12px;
+      --s-4: 16px;
+      --s-5: 24px;
+      --s-6: 32px;
+      --s-7: 48px;
+      --s-8: 64px;
+      --s-9: 96px;
+
+      --radius: 0px;
+      /* brand: square corners */
+      --shell: 1180px;
+      --gutter: clamp(20px, 5vw, 64px);
+      --section-y: clamp(64px, 8vw, 128px);
+
+      --sans: 'Rethink Sans', 'Satoshi', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, Helvetica, sans-serif;
+      --mono: ui-monospace, 'SF Mono', 'JetBrains Mono', Menlo, monospace;
+    }
+
+    :root[data-theme="dark"] {
+      --bg: oklch(0.215 0.028 210);
+      /* deep teal near-black */
+      --bg-2: oklch(0.255 0.030 210);
+      --fg: oklch(0.930 0.018 200);
+      /* pale cyan ink (not pure white) */
+      --muted: oklch(0.745 0.028 218);
+      --highlight: oklch(0.80 0.075 200);
+      --accent: oklch(0.80 0.085 198);
+      /* brighter cyan-teal on dark */
+      --accent-fg: oklch(0.20 0.030 210);
+      --accent-hover: oklch(0.86 0.085 198);
+      --line: color-mix(in oklab, var(--fg) 24%, transparent);
+      --line-soft: color-mix(in oklab, var(--fg) 13%, transparent);
+      --card: color-mix(in oklab, var(--fg) 7%, var(--bg));
+      --focus: oklch(0.78 0.14 12);
+    }
+
+    /* ============ Base ============ */
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      -webkit-text-size-adjust: 100%;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(120% 80% at 72% -10%, color-mix(in oklab, var(--highlight) 8%, transparent), transparent 60%),
+        var(--bg);
+      color: var(--fg);
+      font-family: var(--sans);
+      font-size: var(--step-0);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      min-height: 100vh;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    h1,
+    h2,
+    h3 {
+      line-height: 1.08;
+      letter-spacing: -0.015em;
+      font-weight: 800;
+      margin: 0;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: underline;
+      text-underline-offset: 0.18em;
+      text-decoration-thickness: 1px;
+      transition: color .18s ease, text-decoration-color .18s ease;
+    }
+
+    a:hover {
+      text-decoration-color: var(--highlight);
+      color: var(--highlight);
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--focus);
+      outline-offset: 3px;
+    }
+
+    .mono {
+      font-family: var(--mono);
+      font-weight: 500;
+      letter-spacing: -0.02em;
+    }
+
+    /* ============ Layout ============ */
+    .shell {
+      max-width: var(--shell);
+      margin-inline: auto;
+      padding-inline: var(--gutter);
+    }
+
+    .section {
+      padding-block: var(--section-y);
+    }
+
+    .section+.section {
+      border-top: 1px solid var(--line-soft);
+    }
+
+    .eyebrow {
+      font-size: var(--step--1);
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 0 0 var(--s-4);
+    }
+
+    .lead {
+      max-width: 60ch;
+      color: var(--muted);
+      font-size: var(--step-1);
+      line-height: 1.55;
+    }
+
+    /* Skip link */
+    .skip {
+      position: absolute;
+      left: var(--s-4);
+      top: -60px;
+      z-index: 100;
+      background: var(--fg);
+      color: var(--bg);
+      padding: 10px 16px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: top .18s ease;
+    }
+
+    .skip:focus {
+      top: var(--s-4);
+    }
+
+    /* ============ Header ============ */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: color-mix(in oklab, var(--bg) 82%, transparent);
+      backdrop-filter: saturate(120%) blur(10px);
+      border-bottom: 1px solid var(--line-soft);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--s-4);
+      min-height: 64px;
+    }
+
+    .brand {
+      font-weight: 800;
+      font-size: var(--step-1);
+      letter-spacing: -0.02em;
+      text-decoration: none;
+      color: var(--fg);
+      white-space: nowrap;
+    }
+
+    .brand:hover {
+      color: var(--fg);
+    }
+
+    .brand .dot {
+      color: var(--highlight);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: clamp(8px, 2vw, 28px);
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--muted);
+      font-weight: 500;
+      font-size: var(--step--1);
+      padding: 8px 4px;
+      letter-spacing: 0.02em;
+    }
+
+    .nav-links a:hover {
+      color: var(--fg);
+    }
+
+    .nav-desktop {
+      display: none;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: var(--s-3);
+    }
+
+    /* Theme toggle */
+    .toggle {
+      display: inline-grid;
+      place-items: center;
+      width: 44px;
+      height: 44px;
+      background: transparent;
+      border: 1px solid var(--line);
+      color: var(--fg);
+      cursor: pointer;
+      border-radius: var(--radius);
+      transition: background .18s ease, border-color .18s ease;
+    }
+
+    .toggle:hover {
+      background: var(--card);
+      border-color: var(--highlight);
+    }
+
+    .toggle svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    :root[data-theme="dark"] .icon-sun {
+      display: block;
+    }
+
+    :root[data-theme="dark"] .icon-moon {
+      display: none;
+    }
+
+    .icon-sun {
+      display: none;
+    }
+
+    .icon-moon {
+      display: block;
+    }
+
+    /* Mobile menu */
+    .menu-btn {
+      display: inline-grid;
+      place-items: center;
+      width: 44px;
+      height: 44px;
+      background: transparent;
+      border: 1px solid var(--line);
+      color: var(--fg);
+      cursor: pointer;
+      border-radius: var(--radius);
+    }
+
+    .menu-btn svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .nav-mobile {
+      display: none;
+      list-style: none;
+      margin: 0;
+      padding: var(--s-3) 0 var(--s-5);
+      border-top: 1px solid var(--line-soft);
+    }
+
+    .nav-mobile.open {
+      display: block;
+    }
+
+    .nav-mobile a {
+      display: block;
+      text-decoration: none;
+      color: var(--fg);
+      font-weight: 600;
+      font-size: var(--step-1);
+      padding: 12px 0;
+      border-bottom: 1px solid var(--line-soft);
+    }
+
+    /* ============ Buttons ============ */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 48px;
+      padding: 12px 24px;
+      border-radius: var(--radius);
+      font-family: inherit;
+      font-weight: 700;
+      font-size: var(--step-0);
+      line-height: 1;
+      text-decoration: none;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: background .18s ease, color .18s ease, border-color .18s ease, transform .12s ease;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--accent-fg);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-hover);
+      color: var(--accent-fg);
+      transform: translateY(-1px);
+    }
+
+    .btn-primary:active {
+      transform: translateY(0);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--fg);
+      border-color: var(--line);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--highlight);
+      color: var(--highlight);
+      background: var(--card);
+    }
+
+    .btn .arrow {
+      transition: transform .18s ease;
+    }
+
+    .btn:hover .arrow {
+      transform: translateX(3px);
+    }
+
+    /* ============ Hero ============ */
+    .hero {
+      padding-block: clamp(40px, 6vw, 88px) clamp(32px, 4vw, 56px);
+    }
+
+    .hero-grid {
+      display: grid;
+      gap: clamp(32px, 5vw, 64px);
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 1.4rem + 2.6vw, 3.4rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+      margin-bottom: var(--s-5);
+      text-wrap: balance;
+    }
+
+    .hero h1 .mono {
+      font-weight: 500;
+      color: var(--highlight);
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--s-4);
+      margin-top: var(--s-7);
+    }
+
+    .hero-note {
+      margin-top: var(--s-4);
+      font-size: var(--step--1);
+      color: var(--muted);
+    }
+
+    /* Portrait */
+    .portrait-frame {
+      position: relative;
+      max-width: 420px;
+      margin-inline: auto;
+      width: 100%;
+      aspect-ratio: 1/1;
+      border: 1px solid var(--line);
+      background: linear-gradient(135deg, color-mix(in oklab, var(--highlight) 10%, transparent), transparent);
+      padding: 10px;
+    }
+
+    .portrait-frame::before {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      z-index: -1;
+      background: linear-gradient(135deg, var(--split-r), var(--split-b));
+      opacity: 0;
+      transition: opacity .3s ease;
+    }
+
+    .portrait-frame:hover::before {
+      opacity: .35;
+    }
+
+    .portrait-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .portrait-tag {
+      position: absolute;
+      left: 10px;
+      bottom: 10px;
+      background: var(--fg);
+      color: var(--bg);
+      font-family: var(--mono);
+      font-size: 12px;
+      font-weight: 500;
+      padding: 6px 10px;
+      letter-spacing: -0.01em;
+    }
+
+    /* Stats */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--s-5);
+      margin-top: var(--s-9);
+    }
+
+    .stat .n {
+      font-size: var(--step-2);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1;
+    }
+
+    .stat .n .mono {
+      color: var(--highlight);
+    }
+
+    .stat .l {
+      font-size: var(--step--1);
+      color: var(--muted);
+      margin-top: 6px;
+    }
+
+    /* ============ Section head ============ */
+    .sec-head {
+      margin-bottom: clamp(32px, 5vw, 56px);
+      max-width: 60ch;
+    }
+
+    .sec-head h2 {
+      font-size: var(--step-3);
+      margin-bottom: var(--s-4);
+    }
+
+    .sec-head h2 .mono {
+      color: var(--highlight);
+    }
+
+    /* ============ Resume ============ */
+    .resume-grid {
+      display: grid;
+      gap: clamp(40px, 6vw, 72px);
+    }
+
+    .timeline {
+      display: grid;
+      gap: 0;
+    }
+
+    .job {
+      display: grid;
+      gap: var(--s-2) var(--s-6);
+      padding-block: var(--s-6);
+      border-top: 1px solid var(--line-soft);
+    }
+
+    .job:first-child {
+      border-top: 1px solid var(--line);
+    }
+
+    .job-when {
+      font-family: var(--mono);
+      font-size: var(--step--1);
+      color: var(--muted);
+      letter-spacing: -0.01em;
+      padding-top: 4px;
+    }
+
+    .job-role {
+      font-size: var(--step-1);
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+
+    .job-org {
+      color: var(--highlight);
+      font-weight: 700;
+    }
+
+    .job-desc {
+      color: var(--muted);
+      margin-top: var(--s-2);
+      max-width: 62ch;
+    }
+
+    .tag-current {
+      display: inline-block;
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--accent-fg);
+      background: var(--accent);
+      padding: 3px 8px;
+      margin-left: 8px;
+      vertical-align: middle;
+      letter-spacing: 0.02em;
+    }
+
+    /* Sidebar */
+    .aside-stack {
+      display: grid;
+      gap: var(--s-7);
+    }
+
+    .panel h3 {
+      font-size: var(--step-1);
+      margin-bottom: var(--s-4);
+    }
+
+    .edu-item {
+      padding-block: var(--s-3);
+      border-top: 1px solid var(--line-soft);
+    }
+
+    .edu-item:first-of-type {
+      border-top: none;
+      padding-top: 0;
+    }
+
+    .edu-item .deg {
+      font-weight: 700;
+    }
+
+    .edu-item .meta {
+      font-size: var(--step--1);
+      color: var(--muted);
+      font-family: var(--mono);
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--s-2);
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .chips li {
+      font-size: var(--step--1);
+      padding: 7px 12px;
+      border: 1px solid var(--line);
+      color: var(--fg);
+      line-height: 1.3;
+    }
+
+    .skill-groups {
+      display: grid;
+      gap: var(--s-5);
+    }
+
+    .skill-group .sg-label {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 0 0 var(--s-3);
+    }
+
+    .langs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--s-2) var(--s-5);
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .langs li {
+      font-weight: 600;
+    }
+
+    .langs li span {
+      color: var(--muted);
+      font-weight: 400;
+      font-size: var(--step--1);
+      font-family: var(--mono);
+    }
+
+    /* ============ Portfolio ============ */
+    .work-grid {
+      display: grid;
+      gap: 1px;
+      background: var(--line-soft);
+      border: 1px solid var(--line-soft);
+      grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+      counter-reset: card;
+    }
+
+    .card {
+      background: var(--bg);
+      padding: var(--s-6) var(--s-5) var(--s-5);
+      display: flex;
+      flex-direction: column;
+      gap: var(--s-3);
+      min-height: 184px;
+      position: relative;
+      counter-increment: card;
+      transition: background .2s ease;
+    }
+
+    /* Editorial index numeral (01, 02, …) */
+    .card::before {
+      content: counter(card, decimal-leading-zero);
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      transition: color .2s ease;
+    }
+
+    .card:hover::before,
+    .card:focus-within::before {
+      color: var(--highlight);
+    }
+
+    /* Accent hairline that draws in on hover */
+    .card::after {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto 0;
+      height: 2px;
+      background: var(--highlight);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .28s ease;
+    }
+
+    .card:hover::after,
+    .card:focus-within::after {
+      transform: scaleX(1);
+    }
+
+    .card:hover,
+    .card:focus-within {
+      background: var(--card);
+    }
+
+    .card-top {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: var(--s-3);
+      margin-top: 2px;
+    }
+
+    .card h3 {
+      font-size: var(--step-1);
+      letter-spacing: -0.02em;
+    }
+
+    .card-kind {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      white-space: nowrap;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: var(--step-0);
+      line-height: 1.5;
+    }
+
+    /* .go is the real link; its ::after is stretched to cover the
+       whole card, so clicking anywhere on the card visits the project. */
+    .card .go {
+      margin-top: auto;
+      font-family: var(--mono);
+      font-size: var(--step--1);
+      color: var(--highlight);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding-top: var(--s-3);
+      text-decoration: none;
+    }
+
+    .card .go::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+    }
+
+    .go .arrow {
+      transition: transform .18s ease;
+    }
+
+    .card:hover .go .arrow,
+    .go:focus-visible .arrow {
+      transform: translateX(3px);
+    }
+
+    .card .badge {
+      align-self: flex-start;
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.02em;
+      color: var(--accent-fg);
+      background: var(--accent);
+      padding: 2px 7px;
+      margin-top: auto;
+    }
+
+    /* Video thumbnail preview + play button (video-enabled cards) */
+    .card-preview {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: opacity .25s ease;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .card-preview img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .card-preview::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, .78) 0%, rgba(0, 0, 0, .28) 55%, transparent 85%);
+    }
+
+    .card-yt:hover .card-preview,
+    .card-yt:focus-within .card-preview {
+      opacity: 1;
+    }
+
+    .play-btn {
+      position: absolute;
+      z-index: 2;
+      left: 50%;
+      top: 50%;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      transform: translate(-50%, -50%) scale(.8);
+      display: grid;
+      place-items: center;
+      background: rgba(30, 30, 30, .38);
+      backdrop-filter: blur(3px) saturate(140%);
+      -webkit-backdrop-filter: blur(3px) saturate(140%);
+      color: #fff;
+      border: 1.5px solid rgba(255, 255, 255, .55);
+      font-family: inherit;
+      cursor: pointer;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .22s ease, transform .22s ease, background .18s ease, border-color .18s ease;
+    }
+
+    .play-btn svg {
+      width: 20px;
+      height: 20px;
+      margin-left: 3px;
+    }
+
+    .play-btn:hover {
+      background: rgba(30, 30, 30, .55);
+      border-color: #fff;
+    }
+
+    .card-yt:hover .play-btn,
+    .card-yt:focus-within .play-btn {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    .play-btn:focus-visible {
+      outline: 2px solid var(--focus);
+      outline-offset: 3px;
+    }
+
+    @media (hover: none) {
+
+      .card-yt .card-preview,
+      .card-yt .play-btn {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translate(-50%, -50%) scale(1);
+      }
+    }
+
+    /* ============ Video modal ============ */
+    .video-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      display: grid;
+      place-items: center;
+      padding: var(--gutter);
+    }
+
+    .video-modal[hidden] {
+      display: none;
+    }
+
+    .video-modal-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, .82);
+    }
+
+    .video-modal-panel {
+      position: relative;
+      width: 100%;
+      max-width: 900px;
+      background: var(--bg);
+      border: 1px solid var(--line);
+    }
+
+    .video-modal-frame {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: #000;
+    }
+
+    .video-modal-frame iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .video-modal-title {
+      font-family: var(--mono);
+      font-size: var(--step--1);
+      color: var(--muted);
+      padding: var(--s-4) var(--s-5);
+    }
+
+    .video-modal-close {
+      position: absolute;
+      top: calc(-1 * var(--s-7));
+      right: 0;
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      background: var(--bg);
+      border: 1px solid var(--line);
+      color: var(--fg);
+      cursor: pointer;
+    }
+
+    .video-modal-close:hover {
+      border-color: var(--highlight);
+      color: var(--highlight);
+    }
+
+    .video-modal-close svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    /* ============ Contact ============ */
+    .contact-grid {
+      display: grid;
+      gap: clamp(40px, 6vw, 72px);
+    }
+
+    .contact-intro h2 {
+      font-size: var(--step-3);
+      margin-bottom: var(--s-4);
+    }
+
+    .contact-intro h2 .mono {
+      color: var(--highlight);
+    }
+
+    .contact-links {
+      list-style: none;
+      margin: var(--s-6) 0 0;
+      padding: 0;
+      display: grid;
+      gap: 0;
+    }
+
+    .contact-links li {
+      border-top: 1px solid var(--line-soft);
+    }
+
+    .contact-links li:first-child {
+      border-top: 1px solid var(--line);
+    }
+
+    .contact-links a {
+      display: flex;
+      align-items: center;
+      gap: var(--s-4);
+      padding: var(--s-4) 0;
+      text-decoration: none;
+      color: var(--fg);
+      min-height: 44px;
+    }
+
+    .contact-links a:hover {
+      color: var(--highlight);
+    }
+
+    .contact-links .who {
+      font-family: var(--mono);
+      font-size: var(--step--1);
+      color: var(--muted);
+      width: 104px;
+      flex: none;
+    }
+
+    .contact-links a:hover .who {
+      color: var(--highlight);
+    }
+
+    .contact-links .what {
+      font-weight: 600;
+      word-break: break-word;
+    }
+
+    .contact-links .arrow {
+      margin-left: auto;
+      color: var(--muted);
+    }
+
+    /* ============ Footer ============ */
+    .site-footer {
+      border-top: 1px solid var(--line);
+      padding-block: var(--s-8);
+    }
+
+    .foot {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--s-5);
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .foot .brand {
+      font-size: var(--step-1);
+    }
+
+    .foot-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--s-5);
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .foot-links a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: var(--step--1);
+    }
+
+    .foot-links a:hover {
+      color: var(--fg);
+    }
+
+    .foot small {
+      color: var(--muted);
+      font-size: var(--step--1);
+      width: 100%;
+    }
+
+    /* ============ Reveal ============ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity .5s ease, transform .5s ease;
+    }
+
+    .reveal.in {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ============ Breakpoints ============ */
+    @media (min-width:720px) {
+      .stats {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .job {
+        grid-template-columns: 150px 1fr;
+      }
+
+      .beyond-item {
+        grid-template-columns: 190px 1fr;
+        align-items: baseline;
+      }
+    }
+
+    @media (min-width:900px) {
+      .nav-desktop {
+        display: flex;
+      }
+
+      .menu-btn {
+        display: none;
+      }
+
+      .nav-mobile {
+        display: none !important;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1.15fr 0.85fr;
+      }
+
+      .resume-grid {
+        grid-template-columns: 1.6fr 1fr;
+        align-items: start;
+      }
+    }
+
+    /* ============ Reduced motion ============ */
+    @media (prefers-reduced-motion: reduce) {
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+        scroll-behavior: auto !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    @media (hover: none) {
+      .portrait-frame:hover::before {
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="shell">
+      <nav class="nav" aria-label="Primary">
+        <a class="brand" href="#top">Partha Chakraborty<span class="dot">.</span></a>
+
+        <ul class="nav-links nav-desktop">
+          <li><a href="#resume">Resume</a></li>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <div class="header-actions">
+          <button class="toggle" id="themeToggle" type="button" aria-label="Toggle dark mode" aria-pressed="false">
+            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              aria-hidden="true">
+              <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              aria-hidden="true">
+              <circle cx="12" cy="12" r="4" />
+              <path
+                d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"
+                stroke-linecap="round" />
+            </svg>
+          </button>
+          <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false"
+            aria-controls="mobileMenu">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M3 6h18M3 12h18M3 18h18" stroke-linecap="round" />
+            </svg>
+          </button>
+        </div>
+      </nav>
+
+      <ul class="nav-mobile" id="mobileMenu">
+        <li><a href="#resume">Resume</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main id="main">
+    <span id="top"></span>
+
+    <!-- ============ HERO ============ -->
+    <section class="hero shell" aria-labelledby="hero-title">
+      <div class="hero-grid">
+        <div>
+          <p class="eyebrow">AI Builder · Entrepreneur · Mentor</p>
+          <h1 id="hero-title">I build products with <span class="mono">AI()</span>, and help others build too.</h1>
+          <p class="lead">
+            AI specialist at <a href="https://www.endlessstudios.com/">Endless Studios,</a> founder of <a
+              href="https://www.tacryqal.com/">Tactyqal Labs</a> in Kolkata, & Gen AI Project Mentor at <a
+              href="https://cleverharvey.com/">Clever Harvey.</a>
+            I've shipped 20+ apps, mentored 60+ teens build AI projects, organically acquired 000's of users, and grown
+            AI content from zero to tens of thousands of readers.
+          </p>
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="#contact">Get in touch <span class="arrow" aria-hidden="true">→</span></a>
+            <a class="btn btn-ghost" href="#work">See my work</a>
+          </div>
+          <p class="hero-note">Based in Kolkata, India · Available for AI &amp; automation projects</p>
+        </div>
+
+        <div>
+          <figure class="portrait-frame">
+            <img src="portrait.jpg" width="900" height="900" alt="Illustrated portrait of Partha Chakraborty"
+              fetchpriority="high" decoding="async">
+
+          </figure>
+        </div>
+      </div>
+
+      <div class="stats reveal" role="list" aria-label="Highlights">
+        <div class="stat" role="listitem">
+          <div class="n"><span class="mono">20+</span></div>
+          <div class="l">Apps built & shipped in 3 years</div>
+        </div>
+        <div class="stat" role="listitem">
+          <div class="n"><span class="mono">60+</span></div>
+          <div class="l">Teens mentored on projects</div>
+        </div>
+        <div class="stat" role="listitem">
+          <div class="n"><span class="mono">400+</span></div>
+          <div class="l">Startups evaluated as a VC fellow</div>
+        </div>
+        <div class="stat" role="listitem">
+          <div class="n"><span class="mono">34M</span></div>
+          <div class="l">Views on a Twitter (X) thread</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ RESUME ============ -->
+    <section class="section" id="resume" aria-labelledby="resume-title">
+      <div class="shell">
+        <div class="sec-head reveal">
+          <p class="eyebrow">Resume</p>
+          <h2 id="resume-title">Two decades across finance, venture, market research, SEO, & building with AI.</h2>
+          <!-- <p class="lead">From financial analysis in Hong Kong and China to venture scouting at Kalaari Capital — and
+            now shipping AI products full-time.</p> -->
+        </div>
+
+        <div class="resume-grid">
+          <!-- Experience -->
+          <div>
+            <div class="timeline">
+              <article class="job reveal">
+                <div class="job-when">Jan 2020 — Present</div>
+                <div>
+                  <div class="job-role">Entrepreneur &amp; AI Specialist <span class="tag-current">Current</span></div>
+                  <div class="job-org">Tactyqal Labs · Endless Studios · Clever Harvey</div>
+                  <p class="job-desc">Building AI apps and running <a href="https://tactyqal.com" target="_blank"
+                      rel="noopener">tactyqal.com</a>. AI specialist at Endless Studios, a youth game-making studio, and
+                    mentor at Clever Harvey.</p>
+                </div>
+              </article>
+
+              <article class="job reveal">
+                <div class="job-when">Jan 2019 — Dec 2019</div>
+                <div>
+                  <div class="job-role">Co-founder</div>
+                  <div class="job-org">CashnGifts — Kolkata</div>
+                  <p class="job-desc">Led strategy and fundraising, pivoting a social gaming app into a social-commerce
+                    platform for digital deals. Helped grow the app from 500K to 1M users.</p>
+                </div>
+              </article>
+
+              <article class="job reveal">
+                <div class="job-when">Nov 2016 — Dec 2018</div>
+                <div>
+                  <div class="job-role">Venture Capital Fellow</div>
+                  <div class="job-org">Kalaari Capital — Bangalore</div>
+                  <p class="job-desc">Scouted early-stage technology startups and evaluated 400+ companies, supporting
+                    portfolio firms on hiring, go-to-market, MIS, and mentor introductions. Several scouted startups
+                    went on to raise
+                    millions.</p>
+                </div>
+              </article>
+
+              <article class="job reveal">
+                <div class="job-when">Jun 2010 — Mar 2016</div>
+                <div>
+                  <div class="job-role">Financial Analyst</div>
+                  <div class="job-org">CITIC Telecom International CPC — Hong Kong</div>
+                  <p class="job-desc">Reported to the GM of Finance, producing revenue, OPEX, CAPEX, budget, and
+                    headcount reports to support company strategy through financial data.</p>
+                </div>
+              </article>
+
+              <article class="job reveal">
+                <div class="job-when">Jul 2007 — Jun 2010</div>
+                <div>
+                  <div class="job-role">China Head</div>
+                  <div class="job-org">Sunrise &amp; Co. (Pte) Ltd — Quanzhou, China</div>
+                  <p class="job-desc">Set up Yonex Sunrise's China operations and led a 15-person team across
+                    administration, vendor sourcing, quality control, and trade documentation.</p>
+                </div>
+              </article>
+
+              <article class="job reveal">
+                <div class="job-when">Jan 2005 — Dec 2006</div>
+                <div>
+                  <div class="job-role">Project Manager, Market Research</div>
+                  <div class="job-org">CBC Market Research — Shanghai, China</div>
+                  <p class="job-desc">Managed market-research projects for clients across Shanghai.</p>
+                </div>
+              </article>
+
+              <article class="job reveal">
+                <div class="job-when">Jan 2004 — Dec 2004</div>
+                <div>
+                  <div class="job-role">Analyst</div>
+                  <div class="job-org">Accenture — Shanghai, China</div>
+
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <!-- Sidebar -->
+          <aside class="aside-stack">
+            <section class="panel reveal" aria-labelledby="edu-title">
+              <h3 id="edu-title">Education</h3>
+              <div class="edu-item">
+                <div class="deg">MBA, Finance &amp; IT</div>
+                <div class="meta">BIMTECH, India · 2000–2002</div>
+              </div>
+              <div class="edu-item">
+                <div class="deg">B.Com (Hons)</div>
+                <div class="meta">University of Calcutta · 1997–2000</div>
+              </div>
+            </section>
+
+            <section class="panel reveal" aria-labelledby="skills-title">
+              <h3 id="skills-title">Tools &amp; Skills</h3>
+              <div class="skill-groups">
+                <div class="skill-group">
+                  <p class="sg-label">AI Assistants</p>
+                  <ul class="chips">
+                    <li>ChatGPT</li>
+                    <li>Claude</li>
+                    <li>Perplexity</li>
+                    <li>Gemini</li>
+                  </ul>
+                </div>
+                <div class="skill-group">
+                  <p class="sg-label">Build &amp; Code</p>
+                  <ul class="chips">
+                    <li>Cursor</li>
+                    <li>Replit</li>
+                    <li>Bolt</li>
+                    <li>Lovable</li>
+                    <li>Claude Code</li>
+                    <li>Antigravity</li>
+                    <li>HTML · CSS · JS</li>
+                    <li>WordPress</li>
+                    <li>Python &amp; LangChain</li>
+                  </ul>
+                </div>
+                <div class="skill-group">
+                  <p class="sg-label">AI Media</p>
+                  <ul class="chips">
+                    <li>Suno</li>
+                    <li>Kling</li>
+                    <li>Hailuo</li>
+                    <li>Leonardo</li>
+                    <li>ElevenLabs</li>
+                    <li>Runway</li>
+                  </ul>
+                </div>
+                <div class="skill-group">
+                  <p class="sg-label">Growth &amp; Automation</p>
+                  <ul class="chips">
+                    <li>SEO &amp; Digital Marketing</li>
+                    <li>n8n Automation</li>
+                  </ul>
+                </div>
+              </div>
+            </section>
+
+            <section class="panel reveal" aria-labelledby="lang-title">
+              <h3 id="lang-title">Languages</h3>
+              <ul class="langs">
+                <li>English</li>
+                <li>Bengali</li>
+                <li>Hindi</li>
+                <li>Chinese <span>(basic)</span></li>
+              </ul>
+            </section>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PORTFOLIO ============ -->
+    <section class="section" id="work" aria-labelledby="work-title">
+      <div class="shell">
+        <div class="sec-head reveal">
+          <p class="eyebrow">Selected Work</p>
+          <h2 id="work-title">Apps I've shipped with <span class="mono">AI()</span>.</h2>
+          <p class="lead">A sample of the products I've built and launched over the past three years — web apps, mobile
+            apps, and bots.</p>
+        </div>
+
+        <div class="work-grid">
+
+          <article class="card card-yt reveal" data-yt-id="mvFkpqszs8o" data-yt-title="codesync.club">
+            <div class="card-top">
+              <h3>codesync.club</h3><span class="card-kind">Web · AI · Voice</span>
+            </div>
+            <p>Accessible multimodal AI coding tutors. 700 users, $8K ARR.</p>
+            <a class="go" href="https://codesync.club" target="_blank" rel="noopener"><span class="mono">Visit</span>
+              <span class="arrow" aria-hidden="true">→</span></a>
+            <span class="card-preview" aria-hidden="true">
+              <img src="https://img.youtube.com/vi/mvFkpqszs8o/hqdefault.jpg" alt="" loading="lazy" decoding="async"
+                width="480" height="360">
+            </span>
+            <button class="play-btn" type="button" aria-label="Play video: codesync.club">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
+                stroke-linejoin="round" aria-hidden="true">
+                <path d="M8 5.5v13l11-6.5z" />
+              </svg>
+            </button>
+          </article>
+
+          <article class="card card-yt reveal" data-yt-id="nSXWExDl3NE" data-yt-title="instalearn.college">
+            <div class="card-top">
+              <h3>instalearn.college</h3><span class="card-kind">Web · AI · Vision</span>
+            </div>
+            <p>An AI screen-recording tool plus a community for digital learning.</p>
+            <a class="go" href="https://instalearn.college" target="_blank" rel="noopener"><span
+                class="mono">Visit</span> <span class="arrow" aria-hidden="true">→</span></a>
+            <span class="card-preview" aria-hidden="true">
+              <img src="https://img.youtube.com/vi/nSXWExDl3NE/hqdefault.jpg" alt="" loading="lazy" decoding="async"
+                width="480" height="360">
+            </span>
+            <button class="play-btn" type="button" aria-label="Play video: instalearn.college">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
+                stroke-linejoin="round" aria-hidden="true">
+                <path d="M8 5.5v13l11-6.5z" />
+              </svg>
+            </button>
+          </article>
+
+          <article class="card card-yt reveal" data-yt-id="PLKGr9W-g9w" data-yt-title="askaria.today">
+            <div class="card-top">
+              <h3>askaria.today</h3><span class="card-kind">Web · AI</span>
+            </div>
+            <p>Perplexity meets Pinterest — an AI companion for making decisions.</p>
+            <a class="go" href="https://askaria.today" target="_blank" rel="noopener"><span class="mono">Visit</span>
+              <span class="arrow" aria-hidden="true">→</span></a>
+            <span class="card-preview" aria-hidden="true">
+              <img src="https://img.youtube.com/vi/PLKGr9W-g9w/hqdefault.jpg" alt="" loading="lazy" decoding="async"
+                width="480" height="360">
+            </span>
+            <button class="play-btn" type="button" aria-label="Play video: askaria.today">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
+                stroke-linejoin="round" aria-hidden="true">
+                <path d="M8 5.5v13l11-6.5z" />
+              </svg>
+            </button>
+          </article>
+
+          <article class="card card-yt reveal" data-yt-id="JdiXPhZFUe0" data-yt-title="Virtual Avatar SDE">
+            <div class="card-top">
+              <h3>Virtual Avatar SDE</h3><span class="card-kind">Web · AI · Voice · Video</span>
+            </div>
+            <p>Talk to Claude Code via a virtual avatar.</p>
+            <a class="go" href="https://youtu.be/JdiXPhZFUe0" target="_blank" rel="noopener"><span
+                class="mono">Visit</span> <span class="arrow" aria-hidden="true">→</span></a>
+            <span class="card-preview" aria-hidden="true">
+              <img src="https://img.youtube.com/vi/JdiXPhZFUe0/hqdefault.jpg" alt="" loading="lazy" decoding="async"
+                width="480" height="360">
+            </span>
+            <button class="play-btn" type="button" aria-label="Play video: Virtual Avatar SDE">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
+                stroke-linejoin="round" aria-hidden="true">
+                <path d="M8 5.5v13l11-6.5z" />
+              </svg>
+            </button>
+          </article>
+
+          <article class="card card-yt reveal" data-yt-id="zS8VCTw7gZM" data-yt-title="Startup Success Index">
+            <div class="card-top">
+              <h3>Startup Success Index</h3><span class="card-kind">Web · AI</span>
+            </div>
+            <p>Check your startup's viability. Ranked in the top 100 of the global Lovable hackathon.</p>
+            <a class="go" href="https://app.tactyqal.com" target="_blank" rel="noopener"><span class="mono">Visit</span>
+              <span class="arrow" aria-hidden="true">→</span></a>
+            <span class="card-preview" aria-hidden="true">
+              <img src="https://img.youtube.com/vi/zS8VCTw7gZM/hqdefault.jpg" alt="" loading="lazy" decoding="async"
+                width="480" height="360">
+            </span>
+            <button class="play-btn" type="button" aria-label="Play video: Startup Success Index">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
+                stroke-linejoin="round" aria-hidden="true">
+                <path d="M8 5.5v13l11-6.5z" />
+              </svg>
+            </button>
+          </article>
+
+          <article class="card card-yt reveal" data-yt-id="yzgcv0dDofc" data-yt-title="Telegram Stock Bot">
+            <div class="card-top">
+              <h3>Telegram Stock Bot</h3><span class="card-kind">Bot · GenAI + ML</span>
+            </div>
+            <p>A Gen-AI and machine-learning powered stock recommendation bot on Telegram.</p>
+            <a class="go" href="https://t.me/+c_tK5PnT-soyMDJl" target="_blank" rel="noopener"><span
+                class="mono">Visit</span> <span class="arrow" aria-hidden="true">→</span></a>
+            <span class="card-preview" aria-hidden="true">
+              <img src="https://img.youtube.com/vi/yzgcv0dDofc/hqdefault.jpg" alt="" loading="lazy" decoding="async"
+                width="480" height="360">
+            </span>
+            <button class="play-btn" type="button" aria-label="Play video: Telegram Stock Bot">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
+                stroke-linejoin="round" aria-hidden="true">
+                <path d="M8 5.5v13l11-6.5z" />
+              </svg>
+            </button>
+          </article>
+
+          <article class="card card-yt reveal" data-yt-id="6f8fNZMKexs" data-yt-title="Zensus">
+            <div class="card-top">
+              <h3>Zensus</h3><span class="card-kind">Mobile</span>
+            </div>
+            <p>TikTok meets social polling — answer video polls and earn virtual currency.</p>
+            <a class="go" href="https://www.youtube.com/watch?v=6f8fNZMKexs" target="_blank" rel="noopener"><span
+                class="mono">Visit</span> <span class="arrow" aria-hidden="true">→</span></a>
+            <span class="card-preview" aria-hidden="true">
+              <img src="https://img.youtube.com/vi/6f8fNZMKexs/hqdefault.jpg" alt="" loading="lazy" decoding="async"
+                width="480" height="360">
+            </span>
+            <button class="play-btn" type="button" aria-label="Play video: Zensus">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
+                stroke-linejoin="round" aria-hidden="true">
+                <path d="M8 5.5v13l11-6.5z" />
+              </svg>
+            </button>
+          </article>
+
+          <article class="card card-yt reveal" data-yt-id="o2SMb8FSuBo" data-yt-title="Suprbeing">
+            <div class="card-top">
+              <h3>Suprbeing</h3><span class="card-kind">Mobile</span>
+            </div>
+            <p>TikTok meets LinkedIn — short educational videos, networking, and job applications.</p>
+            <a class="go" href="https://www.youtube.com/watch?v=o2SMb8FSuBo&t=2s" target="_blank" rel="noopener"><span
+                class="mono">Visit</span> <span class="arrow" aria-hidden="true">→</span></a>
+            <span class="card-preview" aria-hidden="true">
+              <img src="https://img.youtube.com/vi/o2SMb8FSuBo/hqdefault.jpg" alt="" loading="lazy" decoding="async"
+                width="480" height="360">
+            </span>
+            <button class="play-btn" type="button" aria-label="Play video: Suprbeing">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
+                stroke-linejoin="round" aria-hidden="true">
+                <path d="M8 5.5v13l11-6.5z" />
+              </svg>
+            </button>
+          </article>
+
+          <article class="card card-yt reveal" data-yt-id="1YidFOAwk6s" data-yt-title="Interactive Books">
+            <div class="card-top">
+              <h3>Interactive Books</h3><span class="card-kind">Web · AI</span>
+            </div>
+            <p>Apply the ideas from popular business books through interactive quizzes.</p>
+            <a class="go" href="https://youtu.be/1YidFOAwk6s" target="_blank" rel="noopener"><span
+                class="mono">Visit</span> <span class="arrow" aria-hidden="true">→</span></a>
+            <span class="card-preview" aria-hidden="true">
+              <img src="https://img.youtube.com/vi/1YidFOAwk6s/hqdefault.jpg" alt="" loading="lazy" decoding="async"
+                width="480" height="360">
+            </span>
+            <button class="play-btn" type="button" aria-label="Play video: Interactive Books">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
+                stroke-linejoin="round" aria-hidden="true">
+                <path d="M8 5.5v13l11-6.5z" />
+              </svg>
+            </button>
+          </article>
+
+          <article class="card card-yt reveal" data-yt-id="zTHrpHiCewk" data-yt-title="Audionova">
+            <div class="card-top">
+              <h3>Audionova</h3><span class="card-kind">Web · AI · Music · Design</span>
+            </div>
+            <p>Website for an AI music &amp; video production company.</p>
+            <a class="go" href="https://audionova-672806830104.us-central1.run.app/" target="_blank"
+              rel="noopener"><span class="mono">Visit</span> <span class="arrow" aria-hidden="true">→</span></a>
+            <span class="card-preview" aria-hidden="true">
+              <img src="https://img.youtube.com/vi/zTHrpHiCewk/hqdefault.jpg" alt="" loading="lazy" decoding="async"
+                width="480" height="360">
+            </span>
+            <button class="play-btn" type="button" aria-label="Play video: Audionova">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
+                stroke-linejoin="round" aria-hidden="true">
+                <path d="M8 5.5v13l11-6.5z" />
+              </svg>
+            </button>
+          </article>
+
+
+          <article class="card card-yt reveal" data-yt-id="p_oiH6Ufawc" data-yt-title="App Prompt Generator">
+            <div class="card-top">
+              <h3>App Prompt Generator</h3><span class="card-kind">Web · AI</span>
+            </div>
+            <p>Generate prompts to build your app with AI</p>
+            <a class="go" href="https://codesync.club/vibe-prompt-generator" target="_blank" rel="noopener"><span
+                class="mono">Visit</span> <span class="arrow" aria-hidden="true">→</span></a>
+            <span class="card-preview" aria-hidden="true">
+              <img src="https://img.youtube.com/vi/p_oiH6Ufawc/hqdefault.jpg" alt="" loading="lazy" decoding="async"
+                width="480" height="360">
+            </span>
+            <button class="play-btn" type="button" aria-label="Play video: App Prompt Generator">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
+                stroke-linejoin="round" aria-hidden="true">
+                <path d="M8 5.5v13l11-6.5z" />
+              </svg>
+            </button>
+          </article>
+          <article class="card reveal">
+            <div class="card-top">
+              <h3>Tactyqal.com</h3><span class="card-kind">Blog · Content · AI</span>
+            </div>
+            <p>A startup blog with interactive quizzes + case studies - 10,000 monthly visitors</p>
+            <a class="go" href="https://tactyqal.com/blog" target="_blank" rel="noopener"><span
+                class="mono">Visit</span> <span class="arrow" aria-hidden="true">→</span></a>
+          </article>
+
+          <article class="card card-yt reveal" data-yt-id="aef7V-Lsp1I" data-yt-title="LinkedIn Ads AI Analyst">
+            <div class="card-top">
+              <h3>Linkedin Ads AI Analyst</h3><span class="card-kind">AI · Voice · Vision</span>
+            </div>
+            <p>A voice powered AI bot that analyzes & scores Linkedin ads</p>
+            <a class="go" href="https://youtu.be/aef7V-Lsp1I" target="_blank" rel="noopener"><span
+                class="mono">Visit</span> <span class="arrow" aria-hidden="true">→</span></a>
+            <span class="card-preview" aria-hidden="true">
+              <img src="https://img.youtube.com/vi/aef7V-Lsp1I/hqdefault.jpg" alt="" loading="lazy" decoding="async"
+                width="480" height="360">
+            </span>
+            <button class="play-btn" type="button" aria-label="Play video: Linkedin Ads AI Analyst">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
+                stroke-linejoin="round" aria-hidden="true">
+                <path d="M8 5.5v13l11-6.5z" />
+              </svg>
+            </button>
+          </article>
+
+          <article class="card reveal">
+            <div class="card-top">
+              <h3>Jaagrukbharat</h3><span class="card-kind">SEO</span>
+            </div>
+            <p>Doubled Jaagrukbharat's traffic (40K→80K) with SEO</p>
+            <a class="go" href="https://Jaagrukbharat.com" target="_blank" rel="noopener"><span
+                class="mono">Visit</span> <span class="arrow" aria-hidden="true">→</span></a>
+          </article>
+
+          <!-- TODO: placeholder video — replace data-yt-id with the real demo video 
+          <article class="card card-yt reveal" data-yt-id="dQw4w9WgXcQ" data-yt-title="Edusure (placeholder video)">
+            <div class="card-top">
+              <h3>Edusure</h3><span class="card-kind">SEO</span>
+            </div>
+            <p>Grew Edusure's web traffice from 10k to 25k monthly visitors</p>
+            <a class="go" href="https://edusure.in" target="_blank" rel="noopener"><span class="mono">Visit</span> <span
+                class="arrow" aria-hidden="true">→</span></a>
+            <span class="card-preview" aria-hidden="true">
+              <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg" alt="" loading="lazy" decoding="async"
+                width="480" height="360">
+            </span>
+            <button class="play-btn" type="button" aria-label="Play video: Edusure">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
+                stroke-linejoin="round" aria-hidden="true">
+                <path d="M8 5.5v13l11-6.5z" />
+              </svg>
+            </button>
+          </article>-->
+
+          <article class="card reveal">
+            <div class="card-top">
+              <h3>AI Music Channel</h3><span class="card-kind">YouTube </span>
+            </div>
+            <p>Youtube channel for AI music & videos</p>
+            <a class="go" href="https://www.youtube.com/@BanglaAIMusicVideos" target="_blank" rel="noopener"><span
+                class="mono">Visit</span> <span class="arrow" aria-hidden="true">→</span></a>
+          </article>
+
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Video modal — shared by all video-enabled cards -->
+    <div class="video-modal" id="videoModal" hidden>
+      <div class="video-modal-backdrop" data-video-close></div>
+      <div class="video-modal-panel" role="dialog" aria-modal="true" aria-labelledby="videoModalTitle">
+        <button class="video-modal-close" type="button" aria-label="Close video" data-video-close>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M6 6l12 12M18 6L6 18" stroke-linecap="round" />
+          </svg>
+        </button>
+        <div class="video-modal-frame">
+          <iframe id="videoModalIframe" src="" title="" allow="autoplay; encrypted-media; picture-in-picture"
+            allowfullscreen></iframe>
+        </div>
+        <p class="video-modal-title mono" id="videoModalTitle"></p>
+      </div>
+    </div>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="section" id="contact" aria-labelledby="contact-title">
+      <div class="shell">
+        <div class="contact-grid">
+          <div class="contact-intro reveal">
+            <p class="eyebrow">Contact</p>
+            <h2 id="contact-title">Let's build something with <span class="mono">AI()</span>.</h2>
+            <p class="lead">Have a project, a startup idea, or want to collaborate on AI and automation? I'd love to
+              hear from you.</p>
+
+            <ul class="contact-links">
+              <li><a href="mailto:partha.sunrise@gmail.com"><span class="who mono">Email</span><span
+                    class="what">partha.sunrise@gmail.com</span><span class="arrow" aria-hidden="true">→</span></a></li>
+              <li><a href="tel:+919804772106"><span class="who mono">Phone</span><span class="what">+91 98047
+                    72106</span><span class="arrow" aria-hidden="true">→</span></a></li>
+              <li><a href="https://www.linkedin.com/in/chakrabortypartha/" target="_blank" rel="noopener"><span
+                    class="who mono">LinkedIn</span><span class="what">/in/chakrabortypartha</span><span class="arrow"
+                    aria-hidden="true">→</span></a></li>
+              <li><a href="https://github.com/ParthaChak79" target="_blank" rel="noopener"><span
+                    class="who mono">GitHub</span><span class="what">ParthaChak79</span><span class="arrow"
+                    aria-hidden="true">→</span></a></li>
+              <li><a href="https://www.producthunt.com/@partha_chakraborty1" target="_blank" rel="noopener"><span
+                    class="who mono">Product Hunt</span><span class="what">@partha_chakraborty1</span><span
+                    class="arrow" aria-hidden="true">→</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell">
+      <div class="foot">
+        <a class="brand" href="#top">Partha Chakraborty<span class="dot">.</span></a>
+        <ul class="foot-links">
+          <li><a href="#resume">Resume</a></li>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="https://www.linkedin.com/in/chakrabortypartha/" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://github.com/ParthaChak79" target="_blank" rel="noopener">GitHub</a></li>
+        </ul>
+        <small>© <span id="year"></span> Partha Chakraborty · Kolkata, India · Built with <span
+            class="mono">AI()</span>.</small>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Partha Chakraborty",
+  "jobTitle": "AI Specialist & Entrepreneur",
+  "email": "mailto:partha.sunrise@gmail.com",
+  "telephone": "+91-9804772106",
+  "image": "portrait.jpg",
+  "address": { "@type": "PostalAddress", "addressLocality": "Kolkata", "addressCountry": "India" },
+  "worksFor": [
+    { "@type": "Organization", "name": "Tactyqal Labs" },
+    { "@type": "Organization", "name": "Endless Studios" }
+  ],
+  "knowsLanguage": ["English", "Bengali", "Hindi", "Chinese"],
+  "sameAs": [
+    "https://www.linkedin.com/in/chakrabortypartha/",
+    "https://github.com/ParthaChak79",
+    "https://www.producthunt.com/@partha_chakraborty1"
+  ]
+}
+</script>
+
+  <script>
+    (function () {
+      var root = document.documentElement;
+
+      /* Theme toggle */
+      var toggle = document.getElementById('themeToggle');
+      function syncPressed() { toggle.setAttribute('aria-pressed', root.getAttribute('data-theme') === 'dark'); }
+      syncPressed();
+      toggle.addEventListener('click', function () {
+        var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', next);
+        try { localStorage.setItem('theme', next); } catch (e) { }
+        syncPressed();
+      });
+
+      /* Mobile menu */
+      var menuBtn = document.getElementById('menuBtn');
+      var mobileMenu = document.getElementById('mobileMenu');
+      menuBtn.addEventListener('click', function () {
+        var open = mobileMenu.classList.toggle('open');
+        menuBtn.setAttribute('aria-expanded', open);
+        menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      });
+      mobileMenu.addEventListener('click', function (e) {
+        if (e.target.tagName === 'A') {
+          mobileMenu.classList.remove('open');
+          menuBtn.setAttribute('aria-expanded', 'false');
+        }
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
+          mobileMenu.classList.remove('open');
+          menuBtn.setAttribute('aria-expanded', 'false');
+          menuBtn.focus();
+        }
+      });
+
+      /* Year */
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      /* Reveal on scroll */
+      var reveals = document.querySelectorAll('.reveal');
+      if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (en) {
+            if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+          });
+        }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
+        reveals.forEach(function (el) { io.observe(el); });
+      } else {
+        reveals.forEach(function (el) { el.classList.add('in'); });
+      }
+
+      /* Video modal — opened by any .play-btn, plays the card's YouTube video inline */
+      var videoModal = document.getElementById('videoModal');
+      var videoIframe = document.getElementById('videoModalIframe');
+      var videoTitle = document.getElementById('videoModalTitle');
+      var lastFocused = null;
+
+      function openVideoModal(id, title) {
+        lastFocused = document.activeElement;
+        videoIframe.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0';
+        videoIframe.title = title ? ('Video: ' + title) : 'Project video';
+        videoTitle.textContent = title || '';
+        videoModal.hidden = false;
+        document.body.style.overflow = 'hidden';
+        document.addEventListener('keydown', onVideoModalKeydown);
+        videoModal.querySelector('.video-modal-close').focus();
+      }
+
+      function closeVideoModal() {
+        videoModal.hidden = true;
+        videoIframe.src = '';
+        document.body.style.overflow = '';
+        document.removeEventListener('keydown', onVideoModalKeydown);
+        if (lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus();
+      }
+
+      function onVideoModalKeydown(e) {
+        if (e.key === 'Escape') { closeVideoModal(); return; }
+        if (e.key !== 'Tab') return;
+        var focusable = videoModal.querySelectorAll('button, iframe');
+        if (!focusable.length) return;
+        var first = focusable[0], last = focusable[focusable.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+      }
+
+      document.querySelectorAll('[data-video-close]').forEach(function (el) {
+        el.addEventListener('click', closeVideoModal);
+      });
+
+      document.querySelectorAll('.play-btn').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var card = btn.closest('.card');
+          var id = card.getAttribute('data-yt-id');
+          var title = card.getAttribute('data-yt-title') || '';
+          if (id) openVideoModal(id, title);
+        });
+      });
+    })();
+  </script>
+</body>
+
+</html>
