@@ -924,18 +924,12 @@
       display: grid;
       gap: clamp(48px, 7vw, 88px);
       margin-bottom: clamp(56px, 8vw, 96px);
-      counter-reset: showcase;
     }
 
     .showcase-item {
       display: grid;
       grid-template-columns: 1fr;
       gap: var(--s-6);
-      counter-increment: showcase;
-    }
-
-    .showcase-num::before {
-      content: counter(showcase, decimal-leading-zero) ".";
     }
 
     .showcase-media {
@@ -961,7 +955,7 @@
 
     .showcase-frame {
       position: relative;
-      aspect-ratio: 16/10;
+      aspect-ratio: 16/9;
       overflow: hidden;
       background: var(--bg-2);
     }
@@ -979,23 +973,13 @@
     .showcase-copy {
       display: flex;
       flex-direction: column;
-      gap: var(--s-4);
-    }
-
-    .showcase-eyebrow-row {
-      display: flex;
-      align-items: baseline;
       gap: var(--s-3);
-      font-family: var(--mono);
-      font-size: var(--step--1);
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--highlight);
     }
 
     .showcase-copy h3 {
       font-size: var(--step-3);
       letter-spacing: -0.02em;
+      margin-bottom: 4px;
     }
 
     .showcase-desc {
@@ -1003,44 +987,17 @@
       font-size: var(--step-1);
       line-height: 1.6;
       max-width: 52ch;
+      margin-bottom: var(--s-2);
     }
 
-    .sf-label {
-      font-size: var(--step--1);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: var(--s-3);
-    }
-
-    .showcase-features ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: grid;
-      gap: var(--s-2) var(--s-5);
-    }
-
-    .showcase-features li {
-      position: relative;
-      padding-left: var(--s-4);
-      font-size: var(--step-0);
-    }
-
-    .showcase-features li::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0.65em;
-      width: 5px;
-      height: 5px;
-      background: var(--highlight);
-    }
 
     .showcase-tags {
       display: flex;
       flex-wrap: wrap;
       gap: var(--s-2);
+      margin-top: var(--s-2);
+      padding-top: var(--s-5);
+      border-top: 1px solid var(--line-soft);
     }
 
     .showcase-tags .tag {
@@ -1048,19 +1005,28 @@
       font-size: 11px;
       letter-spacing: 0.03em;
       color: var(--muted);
-      border: 1px solid var(--line);
+      background: var(--card);
+      border: 1px solid var(--line-soft);
       padding: 4px 9px;
     }
 
     .showcase-go {
       align-self: flex-start;
-      margin-top: var(--s-2);
+      margin-top: var(--s-4);
     }
 
     @media (min-width: 900px) {
       .showcase-item {
-        grid-template-columns: 1.1fr 1fr;
-        align-items: center;
+        grid-template-columns: 1.6fr 1fr;
+        align-items: stretch;
+      }
+
+      .showcase-go {
+        margin-top: auto;
+      }
+
+      .showcase-item:nth-child(even) {
+        grid-template-columns: 1fr 1.6fr;
       }
 
       .showcase-item:nth-child(even) .showcase-media {
@@ -1069,10 +1035,6 @@
 
       .showcase-item:nth-child(even) .showcase-copy {
         order: 1;
-      }
-
-      .showcase-features ul {
-        grid-template-columns: repeat(2, 1fr);
       }
     }
 
@@ -1406,8 +1368,8 @@
 
         <div>
           <figure class="portrait-frame">
-            <video class="portrait-video" id="portraitVideo" src="partha_video.mp4" poster="portrait.jpg"
-              width="900" height="900" muted loop playsinline preload="auto" fetchpriority="high"
+            <video class="portrait-video" id="portraitVideo" src="partha_video.mp4" poster="portrait.jpg" width="900"
+              height="900" muted loop playsinline preload="auto" fetchpriority="high"
               aria-label="Portrait video of Partha Chakraborty"></video>
           </figure>
         </div>
@@ -1415,19 +1377,23 @@
 
       <div class="stats reveal" role="list" aria-label="Highlights">
         <div class="stat" role="listitem">
-          <div class="n"><span class="mono">20+</span></div>
+          <div class="n" aria-label="20+"><span class="mono stat-num" data-target="20" data-suffix="+"
+              aria-hidden="true">20+</span></div>
           <div class="l">Apps built & shipped in 3 years</div>
         </div>
         <div class="stat" role="listitem">
-          <div class="n"><span class="mono">60+</span></div>
+          <div class="n" aria-label="60+"><span class="mono stat-num" data-target="60" data-suffix="+"
+              aria-hidden="true">60+</span></div>
           <div class="l">Teens mentored on projects</div>
         </div>
         <div class="stat" role="listitem">
-          <div class="n"><span class="mono">400+</span></div>
+          <div class="n" aria-label="400+"><span class="mono stat-num" data-target="400" data-suffix="+"
+              aria-hidden="true">400+</span></div>
           <div class="l">Startups evaluated as a VC fellow</div>
         </div>
         <div class="stat" role="listitem">
-          <div class="n"><span class="mono">34M</span></div>
+          <div class="n" aria-label="34M"><span class="mono stat-num" data-target="34" data-suffix="M"
+              aria-hidden="true">34M</span></div>
           <div class="l">Views on a Twitter (X) thread</div>
         </div>
       </div>
@@ -1613,35 +1579,26 @@
               <div class="browser-chrome" aria-hidden="true"><span></span><span></span><span></span></div>
               <div class="showcase-frame">
                 <span class="card-preview" aria-hidden="true">
-                  <img src="https://img.youtube.com/vi/mvFkpqszs8o/hqdefault.jpg" alt="" loading="lazy"
-                    decoding="async" width="480" height="360">
+                  <img src="https://img.youtube.com/vi/mvFkpqszs8o/hqdefault.jpg" alt="" loading="lazy" decoding="async"
+                    width="480" height="360">
                 </span>
                 <button class="play-btn" type="button" aria-label="Play video: codesync.club">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"
-                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
+                    stroke-linejoin="round" aria-hidden="true">
                     <path d="M8 5.5v13l11-6.5z" />
                   </svg>
                 </button>
               </div>
             </div>
             <div class="showcase-copy">
-              <p class="showcase-eyebrow-row"><span class="showcase-num"></span> AI coding education platform</p>
-              <h3>codesync.club</h3>
-              <p class="showcase-desc">Accessible multimodal AI coding tutors for learners who need more than
-                text — voice and vision built in from the start.</p>
-              <div class="showcase-features">
-                <p class="sf-label mono">Core features</p>
-                <ul>
-                  <li>Multimodal voice + vision tutoring</li>
-                  <li>700 active users</li>
-                  <li>$8K ARR</li>
-                </ul>
-              </div>
+              <h3>Codesync Club</h3>
+              <p class="showcase-desc">Codesync Club is an app where students can learn coding (HTML, CSS & JavaScript)
+                with AI teachers, by building fun apps & games, in the browswer.</p>
               <div class="showcase-tags" aria-label="Category">
                 <span class="tag">Web</span><span class="tag">AI</span><span class="tag">Voice</span>
               </div>
-              <a class="go showcase-go" href="https://codesync.club" target="_blank" rel="noopener"><span
-                  class="mono">Visit project</span> <span class="arrow" aria-hidden="true">→</span></a>
+              <a class="btn btn-ghost showcase-go" href="https://codesync.club" target="_blank" rel="noopener">Visit
+                project <span class="arrow" aria-hidden="true">→</span></a>
             </div>
           </article>
 
@@ -1650,36 +1607,26 @@
               <div class="browser-chrome" aria-hidden="true"><span></span><span></span><span></span></div>
               <div class="showcase-frame">
                 <span class="card-preview" aria-hidden="true">
-                  <img src="https://img.youtube.com/vi/nSXWExDl3NE/hqdefault.jpg" alt="" loading="lazy"
-                    decoding="async" width="480" height="360">
+                  <img src="https://img.youtube.com/vi/nSXWExDl3NE/hqdefault.jpg" alt="" loading="lazy" decoding="async"
+                    width="480" height="360">
                 </span>
                 <button class="play-btn" type="button" aria-label="Play video: instalearn.college">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"
-                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
+                    stroke-linejoin="round" aria-hidden="true">
                     <path d="M8 5.5v13l11-6.5z" />
                   </svg>
                 </button>
               </div>
             </div>
             <div class="showcase-copy">
-              <p class="showcase-eyebrow-row"><span class="showcase-num"></span> AI screen-recording + learning
-                community</p>
-              <h3>instalearn.college</h3>
-              <p class="showcase-desc">An AI screen-recording tool paired with a community built around digital
-                learning.</p>
-              <div class="showcase-features">
-                <p class="sf-label mono">Core features</p>
-                <ul>
-                  <li>AI-assisted screen recording</li>
-                  <li>Community for digital learners</li>
-                  <li>Vision-based content analysis</li>
-                </ul>
-              </div>
+              <h3>Instalearn College</h3>
+              <p class="showcase-desc">An AI screen-recording tool that turns screen recordings into professional video
+                tutorials</p>
               <div class="showcase-tags" aria-label="Category">
                 <span class="tag">Web</span><span class="tag">AI</span><span class="tag">Vision</span>
               </div>
-              <a class="go showcase-go" href="https://instalearn.college" target="_blank" rel="noopener"><span
-                  class="mono">Visit project</span> <span class="arrow" aria-hidden="true">→</span></a>
+              <a class="btn btn-ghost showcase-go" href="https://instalearn.college" target="_blank"
+                rel="noopener">Visit project <span class="arrow" aria-hidden="true">→</span></a>
             </div>
           </article>
 
@@ -1688,35 +1635,26 @@
               <div class="browser-chrome" aria-hidden="true"><span></span><span></span><span></span></div>
               <div class="showcase-frame">
                 <span class="card-preview" aria-hidden="true">
-                  <img src="https://img.youtube.com/vi/PLKGr9W-g9w/hqdefault.jpg" alt="" loading="lazy"
-                    decoding="async" width="480" height="360">
+                  <img src="https://img.youtube.com/vi/PLKGr9W-g9w/hqdefault.jpg" alt="" loading="lazy" decoding="async"
+                    width="480" height="360">
                 </span>
                 <button class="play-btn" type="button" aria-label="Play video: askaria.today">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"
-                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
+                    stroke-linejoin="round" aria-hidden="true">
                     <path d="M8 5.5v13l11-6.5z" />
                   </svg>
                 </button>
               </div>
             </div>
             <div class="showcase-copy">
-              <p class="showcase-eyebrow-row"><span class="showcase-num"></span> AI decision-making companion</p>
               <h3>askaria.today</h3>
-              <p class="showcase-desc">Perplexity meets Pinterest — an AI companion that helps you research and
-                visualize decisions before you make them.</p>
-              <div class="showcase-features">
-                <p class="sf-label mono">Core features</p>
-                <ul>
-                  <li>AI-powered research</li>
-                  <li>Visual, Pinterest-style discovery</li>
-                  <li>Decision-support workflow</li>
-                </ul>
-              </div>
+              <p class="showcase-desc">A visual research assistant that helps you make decisions. Think - Perplexity
+                meets Pinterest.</p>
               <div class="showcase-tags" aria-label="Category">
                 <span class="tag">Web</span><span class="tag">AI</span>
               </div>
-              <a class="go showcase-go" href="https://askaria.today" target="_blank" rel="noopener"><span
-                  class="mono">Visit project</span> <span class="arrow" aria-hidden="true">→</span></a>
+              <a class="btn btn-ghost showcase-go" href="https://askaria.today" target="_blank" rel="noopener">Visit
+                project <span class="arrow" aria-hidden="true">→</span></a>
             </div>
           </article>
 
@@ -1725,37 +1663,27 @@
               <div class="browser-chrome" aria-hidden="true"><span></span><span></span><span></span></div>
               <div class="showcase-frame">
                 <span class="card-preview" aria-hidden="true">
-                  <img src="https://img.youtube.com/vi/JdiXPhZFUe0/hqdefault.jpg" alt="" loading="lazy"
-                    decoding="async" width="480" height="360">
+                  <img src="https://img.youtube.com/vi/JdiXPhZFUe0/hqdefault.jpg" alt="" loading="lazy" decoding="async"
+                    width="480" height="360">
                 </span>
                 <button class="play-btn" type="button" aria-label="Play video: Virtual Avatar SDE">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"
-                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
+                    stroke-linejoin="round" aria-hidden="true">
                     <path d="M8 5.5v13l11-6.5z" />
                   </svg>
                 </button>
               </div>
             </div>
             <div class="showcase-copy">
-              <p class="showcase-eyebrow-row"><span class="showcase-num"></span> Voice-driven AI coding assistant
-              </p>
               <h3>Virtual Avatar SDE</h3>
               <p class="showcase-desc">Talk to Claude Code through a virtual avatar — a conversational, voice-first
                 interface for AI-assisted development.</p>
-              <div class="showcase-features">
-                <p class="sf-label mono">Core features</p>
-                <ul>
-                  <li>Voice interface to Claude Code</li>
-                  <li>Real-time virtual avatar</li>
-                  <li>Conversational coding workflow</li>
-                </ul>
-              </div>
               <div class="showcase-tags" aria-label="Category">
                 <span class="tag">Web</span><span class="tag">AI</span><span class="tag">Voice</span><span
                   class="tag">Video</span>
               </div>
-              <a class="go showcase-go" href="https://youtu.be/JdiXPhZFUe0" target="_blank" rel="noopener"><span
-                  class="mono">Visit project</span> <span class="arrow" aria-hidden="true">→</span></a>
+              <a class="btn btn-ghost showcase-go" href="https://youtu.be/JdiXPhZFUe0" target="_blank"
+                rel="noopener">Visit project <span class="arrow" aria-hidden="true">→</span></a>
             </div>
           </article>
 
@@ -1764,35 +1692,26 @@
               <div class="browser-chrome" aria-hidden="true"><span></span><span></span><span></span></div>
               <div class="showcase-frame">
                 <span class="card-preview" aria-hidden="true">
-                  <img src="https://img.youtube.com/vi/yzgcv0dDofc/hqdefault.jpg" alt="" loading="lazy"
-                    decoding="async" width="480" height="360">
+                  <img src="https://img.youtube.com/vi/yzgcv0dDofc/hqdefault.jpg" alt="" loading="lazy" decoding="async"
+                    width="480" height="360">
                 </span>
                 <button class="play-btn" type="button" aria-label="Play video: Telegram Stock Bot">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"
-                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
+                    stroke-linejoin="round" aria-hidden="true">
                     <path d="M8 5.5v13l11-6.5z" />
                   </svg>
                 </button>
               </div>
             </div>
             <div class="showcase-copy">
-              <p class="showcase-eyebrow-row"><span class="showcase-num"></span> AI stock recommendation bot</p>
               <h3>Telegram Stock Bot</h3>
               <p class="showcase-desc">A Gen-AI and machine-learning powered bot that delivers stock
                 recommendations natively inside Telegram.</p>
-              <div class="showcase-features">
-                <p class="sf-label mono">Core features</p>
-                <ul>
-                  <li>GenAI + ML recommendation engine</li>
-                  <li>Native Telegram delivery</li>
-                  <li>Automated market analysis</li>
-                </ul>
-              </div>
               <div class="showcase-tags" aria-label="Category">
                 <span class="tag">Bot</span><span class="tag">GenAI</span><span class="tag">ML</span>
               </div>
-              <a class="go showcase-go" href="https://t.me/+c_tK5PnT-soyMDJl" target="_blank" rel="noopener"><span
-                  class="mono">Visit project</span> <span class="arrow" aria-hidden="true">→</span></a>
+              <a class="btn btn-ghost showcase-go" href="https://t.me/+c_tK5PnT-soyMDJl" target="_blank"
+                rel="noopener">Visit project <span class="arrow" aria-hidden="true">→</span></a>
             </div>
           </article>
 
@@ -1801,38 +1720,27 @@
               <div class="browser-chrome" aria-hidden="true"><span></span><span></span><span></span></div>
               <div class="showcase-frame">
                 <span class="card-preview" aria-hidden="true">
-                  <img src="https://img.youtube.com/vi/zTHrpHiCewk/hqdefault.jpg" alt="" loading="lazy"
-                    decoding="async" width="480" height="360">
+                  <img src="https://img.youtube.com/vi/zTHrpHiCewk/hqdefault.jpg" alt="" loading="lazy" decoding="async"
+                    width="480" height="360">
                 </span>
                 <button class="play-btn" type="button" aria-label="Play video: Audionova">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"
-                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
+                    stroke-linejoin="round" aria-hidden="true">
                     <path d="M8 5.5v13l11-6.5z" />
                   </svg>
                 </button>
               </div>
             </div>
             <div class="showcase-copy">
-              <p class="showcase-eyebrow-row"><span class="showcase-num"></span> AI music &amp; video production
-              </p>
               <h3>Audionova</h3>
               <p class="showcase-desc">The marketing site for an AI music and video production company —
                 showcasing AI-generated audio and visuals.</p>
-              <div class="showcase-features">
-                <p class="sf-label mono">Core features</p>
-                <ul>
-                  <li>AI music &amp; video production</li>
-                  <li>Client-facing marketing site</li>
-                  <li>Portfolio of AI-generated media</li>
-                </ul>
-              </div>
               <div class="showcase-tags" aria-label="Category">
                 <span class="tag">Web</span><span class="tag">AI</span><span class="tag">Music</span><span
                   class="tag">Design</span>
               </div>
-              <a class="go showcase-go" href="https://audionova-672806830104.us-central1.run.app/" target="_blank"
-                rel="noopener"><span class="mono">Visit project</span> <span class="arrow"
-                  aria-hidden="true">→</span></a>
+              <a class="btn btn-ghost showcase-go" href="https://audionova-672806830104.us-central1.run.app/"
+                target="_blank" rel="noopener">Visit project <span class="arrow" aria-hidden="true">→</span></a>
             </div>
           </article>
 
@@ -2144,17 +2052,46 @@
         portraitVideo.play().catch(function () { });
       }
 
+      /* Stat count-up — animates each .stat-num from 0 to its data-target */
+      var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      function animateStats(container) {
+        var nums = container.querySelectorAll('.stat-num');
+        if (reduceMotion) return; // leave the static final values already in the markup
+        nums.forEach(function (el) {
+          var target = parseInt(el.getAttribute('data-target'), 10);
+          var suffix = el.getAttribute('data-suffix') || '';
+          if (isNaN(target)) return;
+          var start = null;
+          var duration = 1400;
+          el.textContent = '0' + suffix;
+          function step(ts) {
+            if (start === null) start = ts;
+            var progress = Math.min((ts - start) / duration, 1);
+            var eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+            var value = Math.round(eased * target);
+            el.textContent = value + suffix;
+            if (progress < 1) requestAnimationFrame(step);
+          }
+          requestAnimationFrame(step);
+        });
+      }
+
       /* Reveal on scroll */
       var reveals = document.querySelectorAll('.reveal');
       if ('IntersectionObserver' in window) {
         var io = new IntersectionObserver(function (entries) {
           entries.forEach(function (en) {
-            if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+            if (en.isIntersecting) {
+              en.target.classList.add('in');
+              if (en.target.classList.contains('stats')) animateStats(en.target);
+              io.unobserve(en.target);
+            }
           });
         }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
         reveals.forEach(function (el) { io.observe(el); });
       } else {
         reveals.forEach(function (el) { el.classList.add('in'); });
+        document.querySelectorAll('.stats').forEach(animateStats);
       }
 
       /* Video modal — opened by any .play-btn, plays the card's YouTube video inline */
